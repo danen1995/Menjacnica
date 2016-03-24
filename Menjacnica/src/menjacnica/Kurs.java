@@ -45,8 +45,8 @@ public class Kurs {
 	}
 	@Override
 	public String toString() {
-		return "Kurs [prodajniKurs=" + prodajniKurs + ", kupovniKurs=" + kupovniKurs + ", srednjiKurs=" + srednjiKurs
-				+ ", datum=" + datum + "]";
+		return "Kurs: ProdajniKurs je: " + prodajniKurs + ", KupovniKurs je: " + kupovniKurs + ", SrednjiKurs je: " + srednjiKurs
+				+ ", Datum je: " + datum;
 	}
 	@Override
 	public int hashCode() {
@@ -64,25 +64,16 @@ public class Kurs {
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Kurs other = (Kurs) obj;
-		if (datum == null) {
-			if (other.datum != null)
-				return false;
-		} else if (!datum.equals(other.datum))
-			return false;
-		if (Double.doubleToLongBits(kupovniKurs) != Double.doubleToLongBits(other.kupovniKurs))
-			return false;
-		if (Double.doubleToLongBits(prodajniKurs) != Double.doubleToLongBits(other.prodajniKurs))
-			return false;
-		if (Double.doubleToLongBits(srednjiKurs) != Double.doubleToLongBits(other.srednjiKurs))
-			return false;
-		return true;
+			if(obj != null && obj instanceof Kurs){
+				Kurs kurs = (Kurs) obj;
+				if(datum.compareTo(kurs.getDatum())==0
+				&& prodajniKurs == kurs.getProdajniKurs()
+				&& kupovniKurs == kurs.getKupovniKurs()
+				&& srednjiKurs == kurs.getSrednjiKurs()){
+					return true;
+				}
+			}
+		return false;
 	}
 	
 }

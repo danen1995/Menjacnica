@@ -31,8 +31,14 @@ public class Menjacnica implements MenjacnicaInterfejs {
 		for (int i = 0; i < valute.size(); i++) {
 			if(valute.get(i).getNaziv().equals(nazivValute)){
 				valute.get(i).getKursevi().add(kurs);
+				return;
 			}
 		}
+		//ukoliko takva valuta ne postoji u listi
+		Valuta v = new Valuta();
+		v.setNaziv(nazivValute);
+		v.setSkraceniNaziv(nazivValute.substring(0, 3));
+		v.getKursevi().add(kurs);
 	}
 	
 	public void izbrisiKursValute(String nazivValute, GregorianCalendar datum){
