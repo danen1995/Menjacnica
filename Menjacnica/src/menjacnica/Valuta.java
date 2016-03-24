@@ -11,19 +11,30 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if(naziv == null){
+			throw new RuntimeException("Naziv ne sme biti null");
+		}
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if(skraceniNaziv == null){
+			throw new RuntimeException("Skraceni naziv ne sme biti null");
+		}
+		if(skraceniNaziv.length() > 3){
+			throw new RuntimeException("Skraceni naziv ne sme biti duzi od 3 karaktera");
+		}
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public LinkedList<Kurs> getKursevi() {
 		return kursevi;
 	}
 	public void setKursevi(LinkedList<Kurs> kursevi) {
-		this.kursevi = kursevi;
+		if(kursevi ==null){
+			throw new RuntimeException("Greska.");
+		}this.kursevi = kursevi;
 	}
 	@Override
 	public String toString() {
